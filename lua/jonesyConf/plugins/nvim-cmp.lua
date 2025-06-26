@@ -15,10 +15,10 @@ return {
 	config = function()
 		local cmp = require("cmp")
 		local luasnip = require("luasnip")
-		
+
 		-- Load vscode style snippets from installed plugins
 		require("luasnip.loaders.from_vscode").lazy_load()
-		
+
 		cmp.setup({
 			completion = {
 				completeopt = "menu,menuone,preview,noselect",
@@ -40,8 +40,8 @@ return {
       		}),
       		-- sources for autocompletion
       		sources = cmp.config.sources({
-      		    { name = "nvim_lsp"},
-      		    { name = "luasnip" }, -- snippets
+      		    { name = "nvim_lsp", max_item_count = 5},
+      		    { name = "luasnip", max_item_count = 5}, -- snippets
       		    { name = "buffer" }, -- text within current buffer
       		    { name = "path" }, -- file system paths
       		}),

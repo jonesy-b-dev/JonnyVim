@@ -20,7 +20,7 @@ return {
 
 			opts.desc = "Go to declaration"
 			keymap.set("n", "gD", vim.lsp.buf.declaration, opts) -- go to declaration
-
+			-- These 2 seem to work the oppisite way smh up and down
 			opts.desc = "Show LSP definitions"
 			keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts) -- show lsp definitions
 
@@ -57,13 +57,19 @@ return {
 
 		-- Used to enable autocompletion (assign to every lsp server config)
 		local capabilities = cmp_nvim_lsp.default_capabilities()
-		
+
 		-- Change the diagnostics symbols in the sign column (gutter)
-		local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
-		for type, icon in pairs(signs) do
-			local hl = "DiagnosticSign" .. type
-			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-		end
+		vim.diagnostic.config({
+		  signs = {
+			text = {
+			  [vim.diagnostic.severity.ERROR] = "",
+			  [vim.diagnostic.severity.WARN] = "",
+			  [vim.diagnostic.severity.HINT] = "󰠠",
+			  [vim.diagnostic.severity.INFO] = "",
+			},
+		  },
+		})
+
 
 		-- LANGUAGE SERVER CONFIGS
 
@@ -87,6 +93,8 @@ return {
 				},
 			},
 		})
+
+		-- Clangd
 		lspconfig["clangd"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
