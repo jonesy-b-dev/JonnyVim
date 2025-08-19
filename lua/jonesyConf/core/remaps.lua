@@ -32,6 +32,7 @@ vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', { noremap = true, silent = true 
 
 -- Custom plugin shortcuts
 vim.keymap.set('n', '<F2>', vim.cmd.UndotreeToggle)
+vim.keymap.set('n', '<leader>p', vim.cmd.NeovimProjectDiscover)
 
 -- Switch buffers
 vim.keymap.set('n', '<M-Tab>', ':bnext<CR>', { noremap = true, silent = true})
