@@ -8,6 +8,7 @@ vim.api.nvim_set_keymap('n', '<C-d>', '<C-d>zz', { noremap = true, silent = true
 vim.api.nvim_set_keymap('n', '<C-e>', '<C-e>zz', { noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', 'n', 'nzzzv', { noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', 'N', 'Nzzzv', { noremap = true, silent = true})
+
 -- Center when going to marker
 vim.keymap.set("n", "`", function()
   local char = vim.fn.getcharstr() -- Get the next character 
@@ -35,5 +36,15 @@ vim.keymap.set('n', '<F2>', vim.cmd.UndotreeToggle)
 vim.keymap.set('n', '<leader>p', vim.cmd.NeovimProjectDiscover)
 
 -- Switch buffers
-vim.keymap.set('n', '<M-Tab>', ':bnext<CR>', { noremap = true, silent = true})
-vim.keymap.set('n', '<M-S-Tab>', ':bprevious<CR>', { noremap = true, silent = true})
+vim.keymap.set('n', '<M-Tab>', ':bprevious<CR>', { noremap = true, silent = true})
+vim.keymap.set('n', '<M-S-Tab>', ':bnext<CR>', { noremap = true, silent = true})
+
+-- LSP functions
+vim.keymap.set("n", "<leader>h", function()
+	vim.cmd("ClangdSwitchSourceHeader") -- runs the native clang‑d command
+end, opts)
+--
+-- FORMAT (clang-format via clangd)
+vim.keymap.set("n", "<leader>l", function()
+	vim.lsp.buf.format({ async = true })
+end, opts)
