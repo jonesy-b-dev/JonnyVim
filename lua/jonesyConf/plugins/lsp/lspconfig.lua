@@ -54,12 +54,6 @@ return {
 			opts.desc = "Restart LSP"
 			keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
 
-			-- FORMAT (clang-format via clangd)
-			opts.desc = "Format buffer with LSP"
-			keymap.set("n", "<leader>f", function()
-				vim.lsp.buf.format({ async = true })
-			end, opts)
-
 			-- Format on save
 			vim.api.nvim_create_autocmd("BufWritePre", {
 				buffer = bufnr,
