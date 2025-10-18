@@ -36,8 +36,8 @@ vim.keymap.set('n', '<F2>', vim.cmd.UndotreeToggle)
 vim.keymap.set('n', '<leader>p', vim.cmd.NeovimProjectDiscover)
 
 -- Switch buffers
-vim.keymap.set('n', '<M-Tab>', ':bprevious<CR>', { noremap = true, silent = true})
-vim.keymap.set('n', '<M-S-Tab>', ':bnext<CR>', { noremap = true, silent = true})
+vim.keymap.set("n", "<A-Tab>",   "<cmd>BufferLineCycleNext<CR>", { desc = "Next buffer" })
+vim.keymap.set("n", "<S-Tab>", "<cmd>BufferLineCyclePrev<CR>", { desc = "Prev buffer" })
 
 -- LSP functions
 vim.keymap.set("n", "<leader>h", function()
