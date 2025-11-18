@@ -7,11 +7,10 @@ return {
 	config = function()
 		local lspconfig = require("lspconfig")
 		local cmp_nvim_lsp = require("cmp_nvim_lsp")
-
 		local keymap = vim.keymap
 
-		local opts = { noremap = true, silent = true }
 		local on_attach = function(client, bufnr)
+			local opts = { noremap = true, silent = true }
 			opts.buffer = bufnr
 
 			-- Set keybinds
@@ -63,9 +62,6 @@ return {
 			})
 		end
 
-		-- Used to enable autocompletion (assign to every lsp server config)
-		local capabilities = cmp_nvim_lsp.default_capabilities()
-
 		-- Change the diagnostics symbols in the sign column (gutter)
 		vim.diagnostic.config({
 			signs = {
@@ -81,8 +77,11 @@ return {
 
 		-- LANGUAGE SERVER CONFIGS
 
+		-- Used to enable autocompletion (assign to every lsp server config)
+		local capabilities = cmp_nvim_lsp.default_capabilities()
+
 		-- LUA
-		lspconfig["lua_ls"].setup({
+		lspconfig.lua_ls.setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
 			settings = {
@@ -103,7 +102,7 @@ return {
 		})
 
 		-- Clangd
-		lspconfig["clangd"].setup({
+		lspconfig.clangd.setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
