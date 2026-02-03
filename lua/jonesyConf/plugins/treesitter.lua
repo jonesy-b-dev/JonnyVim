@@ -1,5 +1,12 @@
 return {
-	{
-		"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"
-	}
+	"nvim-treesitter/nvim-treesitter",
+	lazy = false,
+	build = ":TSUpdate",
+	config = function()
+		require('nvim-treesitter').setup({
+			highlight = {
+				enable = true,
+			},
+		})
+	end
 }

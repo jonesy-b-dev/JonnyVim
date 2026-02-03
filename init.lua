@@ -18,13 +18,11 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true -- search matters if capital letter
 vim.opt.inccommand = "split" -- "for incsearch while sub
 
--- Turn on syntax highlighting
-vim.api.nvim_create_autocmd("VimEnter", {
-  pattern = "*",
-  command = "TSEnable highlight"
-})
-
+-- Color scheme
 vim.cmd([[colorscheme gruvbox]])
 
 -- Turn off showmode (because lualine shows it)
 vim.opt.showmode = false
+
+-- Add treesitter parser directory to runtimepath
+vim.opt.runtimepath:append("~/.local/share/nvim/site")
