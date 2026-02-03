@@ -106,5 +106,19 @@ return {
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
+
+		--css
+		lspconfig.cssls.setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+			filetypes = {'css', 'scss', 'vue'}
+		})
+
+		--TypeScript
+		lspconfig.ts_ls.setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+			filetypes = {'ts', 'js', 'vue'}
+		})
 	end,
 }
