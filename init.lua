@@ -18,6 +18,8 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true -- search matters if capital letter
 vim.opt.inccommand = "split" -- "for incsearch while sub
 
+vim.cmd('TSEnable highlight')
+
 -- Color scheme
 vim.cmd([[colorscheme gruvbox]])
 
