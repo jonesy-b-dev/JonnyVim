@@ -19,6 +19,9 @@ return {
 		-- Load vscode style snippets from installed plugins
 		require("luasnip.loaders.from_vscode").lazy_load()
 
+		-- Register easy-dotnet package completion source
+		cmp.register_source("easy-dotnet", require("easy-dotnet").package_completion_source)
+
 		cmp.setup({
 			completion = {
 				completeopt = "menu,menuone,preview,noselect",
@@ -44,6 +47,7 @@ return {
       		    { name = "luasnip", max_item_count = 5}, -- snippets
       		    { name = "buffer" }, -- text within current buffer
       		    { name = "path" }, -- file system paths
+      		    { name = "easy-dotnet" }, -- easy-dotnet package refferences
       		}),
 		})
 	end,
