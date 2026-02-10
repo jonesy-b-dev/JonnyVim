@@ -15,6 +15,7 @@ return {
 			"~/dev/web/*",
 			"~/dev/other/*",
 			"~/.config/*",
+			"~/dev/cs/*",
 		},
 
 		-- Session options (handled via session-manager)
