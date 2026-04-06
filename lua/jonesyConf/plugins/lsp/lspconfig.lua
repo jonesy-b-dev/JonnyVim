@@ -5,7 +5,6 @@ return {
 		"hrsh7th/cmp-nvim-lsp",
 	},
 	config = function()
-		local lspconfig = require("lspconfig")
 		local cmp_nvim_lsp = require("cmp_nvim_lsp")
 		local keymap = vim.keymap
 
@@ -81,7 +80,7 @@ return {
 		local capabilities = cmp_nvim_lsp.default_capabilities()
 
 		-- LUA
-		lspconfig.lua_ls.setup({
+		vim.lsp.config("lua_ls", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 			settings = {
@@ -100,25 +99,29 @@ return {
 				},
 			},
 		})
+		vim.lsp.enable("lua_ls")
 
 		-- Clangd
-		lspconfig.clangd.setup({
+		vim.lsp.config("clangd", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
+		vim.lsp.enable("clangd")
 
 		--css
-		lspconfig.cssls.setup({
+		vim.lsp.config("cssls", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 			filetypes = {'css', 'scss', 'vue'}
 		})
+		vim.lsp.enable("cssls")
 
 		--TypeScript
-		lspconfig.ts_ls.setup({
+		vim.lsp.config("ts_ls", {
 			capabilities = capabilities,
 			on_attach = on_attach,
 			filetypes = {'ts', 'js', 'vue'}
 		})
+		vim.lsp.enable("ts_ls")
 	end,
 }
