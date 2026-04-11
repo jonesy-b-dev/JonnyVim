@@ -4,24 +4,24 @@ vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
 -- Extent some default keybinds to center afer running command
-vim.api.nvim_set_keymap('n', '<C-d>', '<C-d>zz', { noremap = true, silent = true})
-vim.api.nvim_set_keymap('n', '<C-e>', '<C-e>zz', { noremap = true, silent = true})
-vim.api.nvim_set_keymap('n', 'n', 'nzzzv', { noremap = true, silent = true})
-vim.api.nvim_set_keymap('n', 'N', 'Nzzzv', { noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<C-d>', '<C-d>zz', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-e>', '<C-e>zz', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', 'n', 'nzzzv', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', 'N', 'Nzzzv', { noremap = true, silent = true })
 
 -- Center when going to marker
 vim.keymap.set("n", "`", function()
-  local char = vim.fn.getcharstr() -- Get the next character 
-  if char and char ~= "" then
-    vim.cmd("normal! `" .. char .. "zz") 
-  end
+	local char = vim.fn.getcharstr() -- Get the next character
+	if char and char ~= "" then
+		vim.cmd("normal! `" .. char .. "zz")
+	end
 end, { noremap = true, silent = true })
 
 vim.keymap.set("n", "'", function()
-  local char = vim.fn.getcharstr()
-  if char and char ~= "" then
-    vim.cmd("normal! '" .. char .. "zz")
-  end
+	local char = vim.fn.getcharstr()
+	if char and char ~= "" then
+		vim.cmd("normal! '" .. char .. "zz")
+	end
 end, { noremap = true, silent = true })
 
 
@@ -34,9 +34,13 @@ vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', { noremap = true, silent = true 
 -- Custom plugin shortcuts
 vim.keymap.set('n', '<F2>', vim.cmd.UndotreeToggle)
 vim.keymap.set('n', '<leader>p', vim.cmd.NeovimProjectDiscover)
+--Snacks.nvim
+vim.keymap.set('n', '<leader>n', function() Snacks.notifier.show_history() end, { desc = "Notification History" })
+vim.keymap.set({ 'n', 't' }, '<C-`>', function() Snacks.terminal.toggle() end, { desc = "Toggle Terminal" })
+
 
 -- Switch buffers
-vim.keymap.set("n", "<A-Tab>",   "<cmd>BufferLineCycleNext<CR>", { desc = "Next buffer" })
+vim.keymap.set("n", "<A-Tab>", "<cmd>BufferLineCycleNext<CR>", { desc = "Next buffer" })
 vim.keymap.set("n", "<S-Tab>", "<cmd>BufferLineCyclePrev<CR>", { desc = "Prev buffer" })
 
 -- LSP functions
