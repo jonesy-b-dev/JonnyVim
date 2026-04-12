@@ -18,6 +18,14 @@ return {
 					vim.cmd.term(string.format("dotnet %s %s", action, args))
 				end
 			end,
+
+			-- Disable autofold
+			vim.api.nvim_create_autocmd("FileType", {
+				pattern = { "cs" },
+				callback = function()
+					vim.wo.foldenable = false
+				end,
+			})
 		})
 	end
 }
