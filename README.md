@@ -22,8 +22,10 @@ This config focuses on keeping as close to NeoVim as possible keeping it minimal
 * Edit file like a text file with [Oil](https://github.com/stevearc/oil.nvim)
 * Web tools with [WebTools](https://github.com/ray-x/web-tools.nvim)
 * Ready to go ASP.NET development with [Easy-dotnet](https://github.com/GustavEikaas/easy-dotnet.nvim)
+* Debugging with [nvim-dap](https://github.com/mfussenegger/nvim-dap)
 
 ## Notable shortcuts
+They can all be found in [Remaps](https://github.com/jonesy-b-dev/JonnyVim/blob/main/lua/jonesyConf/core/remaps.lua) and [After Remaps](https://github.com/jonesy-b-dev/JonnyVim/blob/main/lua/jonesyConf/after/remaps.lua)
 |Shortcut|Action|
 --------|---------
 |`<leader>` | Space |
@@ -36,6 +38,9 @@ This config focuses on keeping as close to NeoVim as possible keeping it minimal
 |`<shift><tab>` | Move buffer back|
 |`<alt><tab>` | Move buffer forward|
 |`<leader>h` | Swap header/translation unit for C/CPP|
+|`<leader>du`| Toggle debug ui |
+|``<C>\` ``| Toggle terminal |
+| Debugging | Visual Studio style shortcuts|
 
 #### LSP shortcuts
 Look in [this file](https://github.com/jonesy-b-dev/JonnyVim/blob/main/lua/jonesyConf/plugins/lsp/lspconfig.lua).
