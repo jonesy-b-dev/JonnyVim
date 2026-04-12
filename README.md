@@ -25,7 +25,7 @@ This config focuses on keeping as close to NeoVim as possible keeping it minimal
 * Debugging with [nvim-dap](https://github.com/mfussenegger/nvim-dap)
 
 ## Notable shortcuts
-They can all be found in [Remaps](https://github.com/jonesy-b-dev/JonnyVim/blob/main/lua/jonesyConf/core/remaps.lua) and [After Remaps](https://github.com/jonesy-b-dev/JonnyVim/blob/main/lua/jonesyConf/after/remaps.lua)
+They can all be found in [Remaps](https://github.com/jonesy-b-dev/JonnyVim/blob/main/lua/JonnyVim/core/remaps.lua) and [After Remaps](https://github.com/jonesy-b-dev/JonnyVim/blob/main/lua/JonnyVim/after/remaps.lua)
 |Shortcut|Action|
 --------|---------
 |`<leader>` | Space |
@@ -43,7 +43,7 @@ They can all be found in [Remaps](https://github.com/jonesy-b-dev/JonnyVim/blob/
 | Debugging | Visual Studio style shortcuts|
 
 #### LSP shortcuts
-Look in [this file](https://github.com/jonesy-b-dev/JonnyVim/blob/main/lua/jonesyConf/plugins/lsp/lspconfig.lua).
+Look in [this file](https://github.com/jonesy-b-dev/JonnyVim/blob/main/lua/JonnyVim/plugins/lsp/lspconfig.lua).
 
 ---
 

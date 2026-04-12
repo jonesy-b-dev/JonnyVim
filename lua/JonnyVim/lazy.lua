@@ -11,5 +11,5 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup({ { import = "jonesyConf.plugins" }, { import = "jonesyConf.plugins.lsp" } })
-require("jonesyConf.plugins.after.mason-nvim-dap-setup")
+require("lazy").setup({ { import = "JonnyVim.plugins" }, { import = "JonnyVim.plugins.lsp" } })
+require("JonnyVim.plugins.after.mason-nvim-dap-setup")

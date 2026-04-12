@@ -1,6 +1,6 @@
-require("jonesyConf.core")
-require("jonesyConf.lazy")
-require("jonesyConf.after")
+require("JonnyVim.core")
+require("JonnyVim.lazy")
+require("JonnyVim.after")
 
 -- Set (relative) lines
 vim.wo.number = true
