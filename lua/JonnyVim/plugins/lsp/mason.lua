@@ -21,7 +21,9 @@ return {
 			-- List of lsp servers for mason to install
 			ensure_installed = {
 				"clangd",
-				"lua_ls"
+				"lua_ls",
+				"cssls",
+				"ts_la",
 			},
 			automatic_installation = true,
 		})
