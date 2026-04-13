@@ -15,7 +15,7 @@ vim.opt.tgc = false
 
 -- Set search options
 vim.opt.ignorecase = true
-vim.opt.smartcase = true -- search matters if capital letter
+vim.opt.smartcase = true     -- search matters if capital letter
 vim.opt.inccommand = "split" -- "for incsearch while sub
 
 -- Color scheme
@@ -26,3 +26,8 @@ vim.opt.showmode = false
 
 -- Add treesitter parser directory to runtimepath
 vim.opt.runtimepath:append("~/.local/share/nvim/site")
+
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+	pattern = { "*" },
+	command = [[%s/\s\+$//e]],
+})
