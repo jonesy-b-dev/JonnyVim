@@ -13,8 +13,8 @@ return {
 			opts.buffer = bufnr
 
 			-- Set keybinds
-			opts.desc = "Show LSP references"
-			keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", opts) -- show definition, references
+
+			--Show LSP references is in trouble.nvim!
 
 			opts.desc = "Go to declaration"
 			keymap.set("n", "gD", vim.lsp.buf.declaration, opts) -- go to declaration
@@ -112,7 +112,7 @@ return {
 		vim.lsp.config("cssls", {
 			capabilities = capabilities,
 			on_attach = on_attach,
-			filetypes = {'css', 'scss', 'vue'}
+			filetypes = { 'css', 'scss', 'vue' }
 		})
 		vim.lsp.enable("cssls")
 
@@ -120,7 +120,7 @@ return {
 		vim.lsp.config("ts_ls", {
 			capabilities = capabilities,
 			on_attach = on_attach,
-			filetypes = {'ts', 'js', 'vue'}
+			filetypes = { 'ts', 'js', 'vue' }
 		})
 		vim.lsp.enable("ts_ls")
 	end,
