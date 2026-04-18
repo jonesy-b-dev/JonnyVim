@@ -37,6 +37,7 @@ vim.keymap.set('n', '<leader>p', vim.cmd.NeovimProjectDiscover)
 --Snacks.nvim
 vim.keymap.set('n', '<leader>n', function() Snacks.notifier.show_history() end, { desc = "Notification History" })
 vim.keymap.set({ 'n', 't' }, '<C-`>', function() Snacks.terminal.toggle() end, { desc = "Toggle Terminal" })
+vim.keymap.set({ 'n', 't' }, '<leader>t', function() Snacks.terminal.toggle() end, { desc = "Toggle Terminal" })
 
 
 -- Switch buffers
