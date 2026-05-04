@@ -19,7 +19,6 @@ return {
 			desc = "Symbols (Trouble)",
 		},
 		{
-			-- Nothing works below this
 			"<leader>cl",
 			"<cmd>Trouble lsp toggle focus=false win.position=bottom<cr>",
 			desc = "LSP Definitions / references / ... (Trouble)",
