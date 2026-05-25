@@ -25,8 +25,22 @@ return {
 
 		},
 		overrides = {
-			NormalFloat = { bg = '#3b3b38' },
-			TelescopeBorder = { fg = "#a89984" }, -- Telescope border
+			NormalFloat                = { bg = '#3b3b38' },
+			TelescopeBorder            = { fg = "#a89984" }, -- Telescope border
+
+			["@punctuation.bracket"]   = { link = "GruvboxFg1" }, -- whatever color you want
+			["@punctuation.delimiter"] = { link = "GruvboxFg1" },
+			["@punctuation.special"]   = { link = "GruvboxFg1" },
+			Operator                   = { link = "GruvboxFg1" },
+			Delimiter                  = { link = "GruvboxFg1" },
+			Function                   = { link = "GruvboxOrange" },
+			--Identifier                 = { fg = "#8db1c9" }, -- replace with your fg1 value
+			["@lsp.type.variable"]     = { fg = "#c5d4b8" },
+			--Comment                    = { link = "GruvboxFg1" },
+			Keyword                    = { fg = "#db5c4d" },
+			["@keyword.conditional"]   = { fg = "#db5c4d" },
+			Macro                      = { link = "GruvboxPurple" },
+			Type                       = { link = "GruvboxFg1" },
 		},
 		dim_inactive = false,
 		transparent_mode = true,
