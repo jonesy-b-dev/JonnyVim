@@ -25,13 +25,14 @@ This config focuses on keeping as close to NeoVim as possible keeping it minimal
 * Debugging with [nvim-dap](https://github.com/mfussenegger/nvim-dap)
 
 ## Notable shortcuts
-They can all be found in [Remaps](https://github.com/jonesy-b-dev/JonnyVim/blob/main/lua/JonnyVim/core/remaps.lua) and [After Remaps](https://github.com/jonesy-b-dev/JonnyVim/blob/main/lua/JonnyVim/after/remaps.lua)
+They can all be found in [Remaps](https://github.com/jonesy-b-dev/JonnyVim/blob/main/lua/JonnyVim/core/remaps.lua) and [After Remaps](https://github.com/jonesy-b-dev/JonnyVim/blob/main/lua/JonnyVim/after/remaps.lua) and [Lsp shortcuts](https://github.com/jonesy-b-dev/JonnyVim/blob/main/lua/JonnyVim/plugins/lsp/lspconfig.lua)
+
 |Shortcut|Action|
 --------|---------
 |`<leader>` | Space |
 |`<leader>ff` | Search files with telescope |
 |`<leader>fg` | Live grep telescope|
-|`<leader>fh` | Search files including hidden with telescope|
+|`<leader>fh` | Search files including hidden files with telescope|
 |`<F2>` | Undotree|
 |`<leader>-` | File tree with Oil|
 |`<leader>xx` | Diagnostics list|
@@ -43,7 +44,11 @@ They can all be found in [Remaps](https://github.com/jonesy-b-dev/JonnyVim/blob/
 | Debugging | Visual Studio style shortcuts|
 
 #### LSP shortcuts
-Look in [this file](https://github.com/jonesy-b-dev/JonnyVim/blob/main/lua/JonnyVim/plugins/lsp/lspconfig.lua).
+JonnyVim uses [default NeoVim shortcuts](https://neovim.io/doc/user/lsp/#_defaults) for lsp actions there are a few additional shortcuts in [this file](https://github.com/jonesy-b-dev/JonnyVim/blob/main/lua/JonnyVim/plugins/lsp/lspconfig.lua).
+
+When pressing a unfinished shortcut a shortcut help window will pop up after 2 seconds.
+
+For example: `<leader>f` will pop up a help window with all the find shortcuts.
 
 ---
 
@@ -51,8 +56,3 @@ Look in [this file](https://github.com/jonesy-b-dev/JonnyVim/blob/main/lua/Jonny
 1. Backup your old Nvim config
 2. Clone repository in `~/.config/nvim`
 3. Open NeoVim and run `:checkhealth` to see if anything dependency is still missing
-
----
-
-## ToDo
-* [ ] Custom syntax highlighting
