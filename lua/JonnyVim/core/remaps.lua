@@ -34,13 +34,12 @@ vim.api.nvim_set_keymap('n', '<C-k>', '<C-w>k', { noremap = true, silent = true 
 vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', { noremap = true, silent = true })
 
 -- Custom plugin shortcuts
-vim.keymap.set('n', '<F2>', vim.cmd.UndotreeToggle)
-vim.keymap.set('n', '<leader>p', vim.cmd.NeovimProjectDiscover)
+vim.keymap.set('n', '<F2>', vim.cmd.UndotreeToggle, { desc = "Toggle undotree" })
+vim.keymap.set('n', '<leader>p', vim.cmd.NeovimProjectDiscover, { desc = "Discover nvim projects" })
 --Snacks.nvim
 vim.keymap.set('n', '<leader>n', function() Snacks.notifier.show_history() end, { desc = "Notification History" })
 vim.keymap.set({ 'n', 't' }, '<C-`>', function() Snacks.terminal.toggle() end, { desc = "Toggle Terminal" })
 vim.keymap.set({ 'n', 't' }, '<leader>t', function() Snacks.terminal.toggle() end, { desc = "Toggle Terminal" })
-
 
 -- Switch buffers
 vim.keymap.set("n", "<A-Tab>", "<cmd>BufferLineCycleNext<CR>", { desc = "Next buffer" })
@@ -51,7 +50,7 @@ vim.keymap.set("n", "<leader>h", function()
 	vim.cmd("ClangdSwitchSourceHeader") -- runs the native clang‑d command
 end, opts)
 --
--- FORMAT (clang-format via clangd)
+-- FORMAT
 vim.keymap.set("n", "<leader>l", function()
 	vim.lsp.buf.format({ async = true })
 end, opts)
