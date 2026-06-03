@@ -8,7 +8,7 @@ return {
 		local cmp_nvim_lsp = require("cmp_nvim_lsp")
 		local keymap = vim.keymap
 
-		local on_attach = function(client, bufnr)
+		local setup_lsp_buffer = function(client, bufnr)
 			local opts = { noremap = true, silent = true }
 			opts.buffer = bufnr
 
@@ -56,10 +56,21 @@ return {
 			vim.api.nvim_create_autocmd("BufWritePre", {
 				buffer = bufnr,
 				callback = function()
-					vim.lsp.buf.format()
+					vim.lsp.buf.format({ bufnr = bufnr })
 				end,
 			})
 		end
+
+		vim.api.nvim_create_autocmd("LspAttach", {
+			callback = function(args)
+				local client = vim.lsp.get_client_by_id(args.data.client_id)
+				if not client then
+					return
+				end
+
+				setup_lsp_buffer(client, args.buf)
+			end,
+		})
 
 		-- Change the diagnostics symbols in the sign column (gutter)
 		vim.diagnostic.config({
@@ -82,7 +93,6 @@ return {
 		-- LUA
 		vim.lsp.config("lua_ls", {
 			capabilities = capabilities,
-			on_attach = on_attach,
 			settings = {
 				Lua = {
 					-- Make lsp recognize "vim" global
@@ -104,14 +114,12 @@ return {
 		-- Clangd
 		vim.lsp.config("clangd", {
 			capabilities = capabilities,
-			on_attach = on_attach,
 		})
 		vim.lsp.enable("clangd")
 
 		--css
 		vim.lsp.config("cssls", {
 			capabilities = capabilities,
-			on_attach = on_attach,
 			filetypes = { 'css', 'scss', 'vue' }
 		})
 		vim.lsp.enable("cssls")
@@ -119,7 +127,6 @@ return {
 		--TypeScript
 		vim.lsp.config("ts_ls", {
 			capabilities = capabilities,
-			on_attach = on_attach,
 			filetypes = { 'ts', 'js', 'vue' }
 		})
 		vim.lsp.enable("ts_ls")
