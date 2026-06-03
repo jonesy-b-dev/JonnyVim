@@ -27,7 +27,16 @@ vim.opt.showmode = false
 -- Add treesitter parser directory to runtimepath
 vim.opt.runtimepath:append("~/.local/share/nvim/site")
 
+--Auto remove trailing whitespace
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 	pattern = { "*" },
 	command = [[%s/\s\+$//e]],
+})
+
+-- Stop getting a new comment when creating new line from a comment
+vim.api.nvim_create_autocmd({ "BufEnter", "FileType" }, {
+	pattern = "*",
+	callback = function()
+		vim.opt_local.formatoptions:remove({ "r", "o" })
+	end,
 })
