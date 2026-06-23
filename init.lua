@@ -2,21 +2,25 @@ require("JonnyVim.core")
 require("JonnyVim.lazy")
 require("JonnyVim.after")
 
--- Set (relative) lines
-vim.opt.number = true
-vim.opt.relativenumber = true
+local function apply_default_options()
+	-- Set (relative) lines
+	vim.opt.number = true
+	vim.opt.relativenumber = true
 
--- Set tab spacing
-vim.opt.shiftwidth = 4
-vim.opt.tabstop = 4
+	-- Set tab spacing
+	vim.opt.shiftwidth = 4
+	vim.opt.tabstop = 4
 
--- Set terminal colors
-vim.opt.tgc = false
+	-- Set terminal colors
+	vim.opt.tgc = false
 
--- Set search options
-vim.opt.ignorecase = true
-vim.opt.smartcase = true     -- search matters if capital letter
-vim.opt.inccommand = "split" -- "for incsearch while sub
+	-- Set search options
+	vim.opt.ignorecase = true
+	vim.opt.smartcase = true     -- search matters if capital letter
+	vim.opt.inccommand = "split" -- "for incsearch while sub
+end
+
+apply_default_options()
 
 -- Color scheme
 vim.cmd([[colorscheme gruvbox]])
@@ -31,6 +35,18 @@ vim.opt.runtimepath:append("~/.local/share/nvim/site")
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 	pattern = { "*" },
 	command = [[%s/\s\+$//e]],
+})
+
+-- Re-apply defaults after loading a session to avoid stale option restores
+vim.api.nvim_create_autocmd({ "User" }, {
+	pattern = "SessionLoadPost",
+	callback = function()
+		apply_default_options()
+		for _, win in ipairs(vim.api.nvim_list_wins()) do
+			vim.api.nvim_set_option_value("number", vim.go.number, { win = win })
+			vim.api.nvim_set_option_value("relativenumber", vim.go.relativenumber, { win = win })
+		end
+	end,
 })
 
 -- Re-apply window UI options for restored/session windows

@@ -24,6 +24,9 @@ return {
 			autoload = false,
 			allowed_dirs = nil,
 		},
+		session_manager_opts = {
+			sessionoptions = { "blank", "buffers", "curdir", "folds", "help", "tabpages", "winsize", "terminal" },
+		},
 
 		picker = {
 			type = "telescope",
