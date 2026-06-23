@@ -4,8 +4,8 @@ require("JonnyVim.after")
 
 local function apply_default_options()
 	-- Set (relative) lines
-	vim.opt.number = true
-	vim.opt.relativenumber = true
+	vim.o.number = true
+	vim.o.relativenumber = true
 
 	-- Set tab spacing
 	vim.opt.shiftwidth = 4

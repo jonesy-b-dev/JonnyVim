@@ -25,6 +25,7 @@ return {
 			allowed_dirs = nil,
 		},
 		session_manager_opts = {
+			-- Keep layout/buffers but avoid persisting option state that can override init defaults.
 			sessionoptions = { "blank", "buffers", "curdir", "folds", "help", "tabpages", "winsize", "terminal" },
 		},
 
