@@ -53,18 +53,6 @@ vim.api.nvim_create_autocmd({ "User" }, {
 	end,
 })
 
--- Re-apply window UI options for restored/session windows
-vim.api.nvim_create_autocmd({ "WinEnter" }, {
-	pattern = "*",
-	callback = function()
-		if vim.bo.buftype ~= "" then
-			return
-		end
-		vim.wo.number = true
-		vim.wo.relativenumber = true
-	end,
-})
-
 -- Stop getting a new comment when creating new line from a comment
 vim.api.nvim_create_autocmd({ "BufEnter", "FileType" }, {
 	pattern = "*",
