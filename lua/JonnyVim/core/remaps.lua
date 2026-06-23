@@ -45,11 +45,6 @@ vim.keymap.set({ 'n', 't' }, '<leader>t', function() Snacks.terminal.toggle() en
 vim.keymap.set("n", "<A-Tab>", "<cmd>BufferLineCycleNext<CR>", { desc = "Next buffer" })
 vim.keymap.set("n", "<S-Tab>", "<cmd>BufferLineCyclePrev<CR>", { desc = "Prev buffer" })
 
--- LSP functions
-vim.keymap.set("n", "<leader>h", function()
-	vim.cmd("ClangdSwitchSourceHeader") -- runs the native clang‑d command
-end, opts)
---
 -- FORMAT
 vim.keymap.set("n", "<leader>l", function()
 	vim.lsp.buf.format({ async = true })

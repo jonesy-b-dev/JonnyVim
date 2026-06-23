@@ -7,9 +7,9 @@ return {
 	config = function()
 		local cmp_nvim_lsp = require("cmp_nvim_lsp")
 		local keymap = vim.keymap
+		local opts = { noremap = true, silent = true }
 
 		local setup_lsp_buffer = function(client, bufnr)
-			local opts = { noremap = true, silent = true }
 			opts.buffer = bufnr
 
 			-- Set keybinds
@@ -52,6 +52,13 @@ return {
 				end
 
 				setup_lsp_buffer(client, args.buf)
+
+				if client.name == "clangd" then
+					vim.keymap.set("n", "<leader>h", function()
+						vim.cmd("LspClangdSwitchSourceHeader") -- runs the native clang‑d command
+					end, opts)
+					--
+				end
 			end,
 		})
 
@@ -97,6 +104,7 @@ return {
 		-- Clangd
 		vim.lsp.config("clangd", {
 			capabilities = capabilities,
+
 		})
 		vim.lsp.enable("clangd")
 
