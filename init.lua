@@ -43,8 +43,8 @@ vim.api.nvim_create_autocmd({ "User" }, {
 	callback = function()
 		apply_default_options()
 		for _, win in ipairs(vim.api.nvim_list_wins()) do
-			vim.api.nvim_set_option_value("number", vim.go.number, { win = win })
-			vim.api.nvim_set_option_value("relativenumber", vim.go.relativenumber, { win = win })
+			vim.api.nvim_set_option_value("number", true, { win = win })
+			vim.api.nvim_set_option_value("relativenumber", true, { win = win })
 		end
 	end,
 })
@@ -53,12 +53,11 @@ vim.api.nvim_create_autocmd({ "User" }, {
 vim.api.nvim_create_autocmd({ "WinEnter" }, {
 	pattern = "*",
 	callback = function()
-		if vim.wo.number ~= vim.go.number then
-			vim.wo.number = vim.go.number
+		if vim.bo.buftype ~= "" then
+			return
 		end
-		if vim.wo.relativenumber ~= vim.go.relativenumber then
-			vim.wo.relativenumber = vim.go.relativenumber
-		end
+		vim.wo.number = true
+		vim.wo.relativenumber = true
 	end,
 })
 
