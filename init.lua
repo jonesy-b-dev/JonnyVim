@@ -44,10 +44,10 @@ vim.api.nvim_create_autocmd({ "User" }, {
 		apply_default_options()
 		for _, win in ipairs(vim.api.nvim_list_wins()) do
 			local buf = vim.api.nvim_win_get_buf(win)
-			local buftype = vim.api.nvim_get_option_value("buftype", { buf = buf })
+			local buftype = vim.bo[buf].buftype
 			if buftype == "" then
-				vim.api.nvim_set_option_value("number", true, { win = win })
-				vim.api.nvim_set_option_value("relativenumber", true, { win = win })
+				vim.wo[win].number = true
+				vim.wo[win].relativenumber = true
 			end
 		end
 	end,
