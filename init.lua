@@ -34,7 +34,7 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 })
 
 -- Re-apply window UI options for restored/session windows
-vim.api.nvim_create_autocmd({ "WinEnter", "BufWinEnter" }, {
+vim.api.nvim_create_autocmd({ "WinEnter" }, {
 	pattern = "*",
 	callback = function()
 		vim.wo.number = vim.go.number
