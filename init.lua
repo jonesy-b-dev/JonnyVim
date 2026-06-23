@@ -3,8 +3,8 @@ require("JonnyVim.lazy")
 require("JonnyVim.after")
 
 -- Set (relative) lines
-vim.wo.number = true
-vim.wo.relativenumber = true
+vim.opt.number = true
+vim.opt.relativenumber = true
 
 -- Set tab spacing
 vim.opt.shiftwidth = 4
@@ -31,6 +31,15 @@ vim.opt.runtimepath:append("~/.local/share/nvim/site")
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 	pattern = { "*" },
 	command = [[%s/\s\+$//e]],
+})
+
+-- Re-apply window UI options for restored/session windows
+vim.api.nvim_create_autocmd({ "WinEnter", "BufWinEnter" }, {
+	pattern = "*",
+	callback = function()
+		vim.wo.number = true
+		vim.wo.relativenumber = true
+	end,
 })
 
 -- Stop getting a new comment when creating new line from a comment
