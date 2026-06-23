@@ -4,8 +4,8 @@ require("JonnyVim.after")
 
 local function apply_default_options()
 	-- Set (relative) lines
-	vim.o.number = true
-	vim.o.relativenumber = true
+	vim.opt.number = true
+	vim.opt.relativenumber = true
 
 	-- Set tab spacing
 	vim.opt.shiftwidth = 4
@@ -17,7 +17,7 @@ local function apply_default_options()
 	-- Set search options
 	vim.opt.ignorecase = true
 	vim.opt.smartcase = true     -- search matters if capital letter
-	vim.opt.inccommand = "split" -- "for incsearch while sub
+	vim.opt.inccommand = "split" -- for incremental preview while substituting
 end
 
 apply_default_options()
