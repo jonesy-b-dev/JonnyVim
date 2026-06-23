@@ -7,7 +7,6 @@ return {
 		handler_opts = {
 			border = "none", -- removes border entirely, saves ~2 lines of space
 		},
-		floating_window_off_y = 2,
 		hint_prefix = "",
 	},
 }
