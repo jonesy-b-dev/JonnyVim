@@ -37,8 +37,8 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 vim.api.nvim_create_autocmd({ "WinEnter", "BufWinEnter" }, {
 	pattern = "*",
 	callback = function()
-		vim.wo.number = true
-		vim.wo.relativenumber = true
+		vim.wo.number = vim.go.number
+		vim.wo.relativenumber = vim.go.relativenumber
 	end,
 })
 
