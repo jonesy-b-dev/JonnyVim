@@ -41,6 +41,7 @@ return {
 			["@keyword.conditional"]   = { fg = "#db5c4d" },
 			Macro                      = { link = "GruvboxPurple" },
 			Type                       = { link = "GruvboxFg1" },
+			--["@lsp.type.class.cs"]     = { fg = "#FFFFFF" }
 		},
 		dim_inactive = false,
 		transparent_mode = true,
