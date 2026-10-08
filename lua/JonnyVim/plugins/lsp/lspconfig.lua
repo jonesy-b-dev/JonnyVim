@@ -36,12 +36,12 @@ return {
 			keymap.set("n", "<leader>rs", "<cmd>lsp restart<CR>", opts) -- mapping to restart lsp if necessary
 
 			-- Format on save
-			vim.api.nvim_create_autocmd("BufWritePre", {
-				buffer = bufnr,
-				callback = function()
-					vim.lsp.buf.format({ bufnr = bufnr })
-				end,
-			})
+			-- vim.api.nvim_create_autocmd("BufWritePre", {
+			-- 	buffer = bufnr,
+			-- 	callback = function()
+			-- 		vim.lsp.buf.format({ bufnr = bufnr })
+			-- 	end,
+			-- })
 		end
 
 		vim.api.nvim_create_autocmd("LspAttach", {
