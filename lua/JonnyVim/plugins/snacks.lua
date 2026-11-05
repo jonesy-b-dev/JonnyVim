@@ -18,7 +18,7 @@ return {
 		},
 		input = { enabled = true },
 		image = { enabled = false },
-		picker = { enabled = false },
+		picker = { enabled = true },
 		notifier = { enabled = true },
 		quickfile = { enabled = true },
 		scope = { enabled = true },
