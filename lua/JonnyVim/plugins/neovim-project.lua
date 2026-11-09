@@ -3,7 +3,7 @@ return {
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		"Shatur/neovim-session-manager",
-		"nvim-telescope/telescope.nvim",
+		"folke/snacks.nvim",
 	},
 	opts = {
 		-- List of project roots (glob patterns)
@@ -26,7 +26,7 @@ return {
 		},
 
 		picker = {
-			type = "telescope",
+			type = "snacks",
 		},
 	},
 

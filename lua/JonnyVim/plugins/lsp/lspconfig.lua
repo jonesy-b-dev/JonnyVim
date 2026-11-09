@@ -20,9 +20,6 @@ return {
 			opts.desc = "Go to declaration"
 			keymap.set("n", "grd", vim.lsp.buf.declaration, opts) -- go to declaration
 
-			opts.desc = "Show LSP definitions"
-			keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts) -- show lsp definitions
-
 			opts.desc = "Show line diagnostics"
 			keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts) -- show diagnostics for line
 

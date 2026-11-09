@@ -26,7 +26,6 @@ return {
 		},
 		overrides = {
 			NormalFloat                = { bg = '#3b3b38' },
-			TelescopeBorder            = { fg = "#a89984" }, -- Telescope border
 
 			["@punctuation.bracket"]   = { link = "GruvboxFg1" }, -- whatever color you want
 			["@punctuation.delimiter"] = { link = "GruvboxFg1" },
