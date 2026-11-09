@@ -18,21 +18,30 @@ This config focuses on keeping as close to NeoVim as possible keeping it minimal
 ## Notable features
 * Easy lsp configuration with [Mason](https://github.com/mason-org/mason.nvim)
 * Lsp diagnostics with [Tint Inline Diagnostics](https://github.com/rachartier/tiny-inline-diagnostic.nvim) and [Trouble](https://github.com/folke/trouble.nvim)
-* Easily navigate with usefull [Telescope](https://github.com/nvim-telescope/telescope.nvim) shortcuts
+* Easily find anything [snacks.picker](https://github.com/folke/snacks.nvim/blob/main/docs/picker.md) shortcuts
 * Edit file like a text file with [Oil](https://github.com/stevearc/oil.nvim)
 * Web tools with [WebTools](https://github.com/ray-x/web-tools.nvim)
 * Ready to go ASP.NET development with [Easy-dotnet](https://github.com/GustavEikaas/easy-dotnet.nvim)
 * Debugging with [nvim-dap](https://github.com/mfussenegger/nvim-dap)
 
+# Setup
+1. Backup current nvim config
+2. Clone the repo in `~/.config/`
+3. Run `mv ~/.config/JonnyVim ~/.config/nvim`
+4. Setup your project folders in `nvim/lua/Jonnyvim/plugins/neovim-project.lua`
+5. Open nvim and run `:Lazy` and update all plugins
+6. Run `:checkhealth` and see if there are any cructial dependencies missing
+
 ## Notable shortcuts
 They can all be found in [Remaps](https://github.com/jonesy-b-dev/JonnyVim/blob/main/lua/JonnyVim/core/remaps.lua) and [After Remaps](https://github.com/jonesy-b-dev/JonnyVim/blob/main/lua/JonnyVim/after/remaps.lua) and [Lsp shortcuts](https://github.com/jonesy-b-dev/JonnyVim/blob/main/lua/JonnyVim/plugins/lsp/lspconfig.lua)
+When pressing a unfinished shortcut a shortcut help window will pop up after 2 seconds using [which-key](https://github.com/folke/which-key.nvim). For example: `<leader>f` will pop up a help window with the shortcuts starting with `<leader>f`.
 
 |Shortcut|Action|
 --------|---------
 |`<leader>` | Space |
-|`<leader>ff` | Search files with telescope |
-|`<leader>fg` | Live grep telescope|
-|`<leader>fh` | Search files including hidden files with telescope|
+|`<leader>ff` | Search files with snack.picker |
+|`<leader>/` | Live grep with snacks.picker|
+|`<leader>fh` | Search git files with snacks.picker|
 |`<F2>` | Undotree|
 |`<leader>-` | File tree with Oil|
 |`<leader>xx` | Diagnostics list|
@@ -41,18 +50,8 @@ They can all be found in [Remaps](https://github.com/jonesy-b-dev/JonnyVim/blob/
 |`<leader>h` | Swap header/translation unit for C/CPP|
 |`<leader>du`| Toggle debug ui |
 |``<C>\` ``| Toggle terminal |
+| `<leader>p` | Browse projects (requires setup)|
 | Debugging | Visual Studio style shortcuts|
 
 #### LSP shortcuts
 JonnyVim uses [default NeoVim shortcuts](https://neovim.io/doc/user/lsp/#_defaults) for lsp actions there are a few additional shortcuts in [this file](https://github.com/jonesy-b-dev/JonnyVim/blob/main/lua/JonnyVim/plugins/lsp/lspconfig.lua).
-
-When pressing a unfinished shortcut a shortcut help window will pop up after 2 seconds.
-
-For example: `<leader>f` will pop up a help window with all the find shortcuts.
-
----
-
-# Installation
-1. Backup your old Nvim config
-2. Clone repository in `~/.config/nvim`
-3. Open NeoVim and run `:checkhealth` to see if anything dependency is still missing
